@@ -2,6 +2,20 @@
     padding: 10px;
     border: 1px solid black;
 } */
+.drop-detail, .drop-detail:hover, .drop-detail:active{
+    position: absolute;
+    z-index: 1;
+    right: 15px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.drop-detail:hover{
+    background: #fff;
+}
+.dropdown-menu>.dropdown-item:hover{
+    background: #8ba7d538;
+}
 .author{
     color: #999;
     font-size: 1rem;

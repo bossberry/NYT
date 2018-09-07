@@ -1,0 +1,17 @@
+.author{
+    color: #999;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block;
+}
+.backlink{
+    color: #000;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+}
+.backlink:hover{
+    cursor: pointer;
+}

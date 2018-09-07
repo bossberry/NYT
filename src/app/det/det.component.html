@@ -1,0 +1,13 @@
+<div class="container" style="margin-top:50px;">
+  <div>
+      <a class="backlink" (click)="goBack()">NEW YORK TODAY</a>
+  </div>
+    <br/>
+  <div class=""row>
+    <img *ngIf="news.multimedia.length > 0" src="{{news.multimedia[news.multimedia.length -1].url}}" width="550px">
+    <img *ngIf="news.multimedia.length === 0" src="assets/nytlogo.jpeg" width="350px">
+  </div>
+  <span class="author">{{ news.published_date | date }} by {{news.byline}}</span>
+  <h4 class="headline"> {{ news.title }} </h4>
+  <p class="headline"> {{ news.abstract }} </p>
+</div>

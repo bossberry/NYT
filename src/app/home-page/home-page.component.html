@@ -1,3 +1,8 @@
+<div style="text-align:center">
+  <div style="text-align:center">
+  <img width="300" src="assets/nytlogo.jpeg">
+  </div>
+</div>
 <div style="text-align: center;margin:10px;" class="row">
   <input style="width:80%;display:inline-block;margin-right:10px; " type="text" class="form-control" placeholder="Search" [(ngModel)]="query" id="listSearch">
   <button class="btn btn-default dropdown" dropdownToggle role="button" dropdown>
@@ -8,7 +13,14 @@
         </div>
   </button>
 </div>
-<div (click)="goTo(item)" class="col-lg-3 col-md-4 col-sm-4 card-nyt" *ngFor="let item of news | SortPipe: orderBy:query" >
+<div class="col-lg-3 col-md-4 col-sm-4 card-nyt" *ngFor="let item of news | SortPipe: orderBy:query" >
+    <button class="btn btn-default dropdown drop-detail" dropdownToggle role="button" dropdown>
+            ...
+        <div *dropdownMenu class="dropdown-menu" style="text-align: center;">
+          <div (click)="goTo(item)" class="dropdown-item">Detail 1</div>
+          <div (click)="goToStore(item)" class="dropdown-item">Detail 2</div>
+        </div>
+    </button>
     <article>
       <div class="crop">
           <img *ngIf="item.multimedia.length > 0" src="{{item.multimedia[item.multimedia.length -1].url}}" width="100%">

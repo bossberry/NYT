@@ -14,6 +14,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { SearchPipe } from './search.pipe';
 import { SortPipe } from './sort.pipe';
 import { DetailComponent } from './detail/detail.component';
+import { DetComponent } from './det/det.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DetailComponent } from './detail/detail.component';
     HomePageComponent,
     SearchPipe,
     SortPipe,
-    DetailComponent
+    DetailComponent,
+    DetComponent
   ],
   imports: [
     BrowserModule,

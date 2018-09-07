@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from  '../api.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -11,24 +12,16 @@ export class HomePageComponent implements OnInit {
   public query:string = '';
   public sortBy:string = 'newest';
   public orderBy:string = 'published_date';
-  constructor(private  apiService:  APIService) { }
+  constructor(private  apiService:  APIService, private router: Router) { }
   // constructor() { }
   ngOnInit() {
     this.getTopArticle();
-    // this.getNews();
   }
-  public  getNews(){
-    this.apiService.getNews().subscribe((data:  Array<object>) => {
-        this.news  =  data.response.docs;
-        console.log(this.news);
-    });
-  },
   public getTopArticle(){
     this.apiService.getTopArticle().subscribe((data:  Array<object>) => {
         this.news  =  data.results;
-        console.log(this.news);
     });
-  },
+  }
   public sort(data){
     if(data === 'old'){
       this.sortBy = 'oldest'
@@ -37,7 +30,12 @@ export class HomePageComponent implements OnInit {
       this.sortBy = 'newest'
       this.orderBy = 'published_date'
     }
-  },
+  }
   public goTo(data){
-    console.log(data);
+    this.router.navigate(['/ArticleDetail', data.url]);
+  }
+  public goToStore(data){
+    localStorage.setItem('Article', JSON.stringify(data));
+    this.router.navigate(['/ArticleDetail2']);
+  }
 }
