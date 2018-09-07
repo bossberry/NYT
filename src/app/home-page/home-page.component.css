@@ -2,6 +2,12 @@
     padding: 10px;
     border: 1px solid black;
 } */
+.ic-meatball{
+    color:#fff;font-size:22px;
+}
+.ic-meatball:hover, .ic-meatball:active{
+    color:#000;font-size:22px;
+}
 .drop-detail, .drop-detail:hover, .drop-detail:active{
     position: absolute;
     z-index: 1;
@@ -11,7 +17,7 @@
     outline: none;
 }
 .drop-detail:hover{
-    background: #fff;
+    background:none;
 }
 .dropdown-menu>.dropdown-item:hover{
     background: #8ba7d538;
