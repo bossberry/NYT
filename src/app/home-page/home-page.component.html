@@ -1,0 +1,25 @@
+<div style="text-align: center;margin:10px;" class="row">
+  <input style="width:80%;display:inline-block;margin-right:10px; " type="text" class="form-control" placeholder="Search" [(ngModel)]="query" id="listSearch">
+  <button class="btn btn-default dropdown" dropdownToggle role="button" dropdown>
+            SortBy &nbsp;{{ sortBy }} &nbsp;<span class="caret"></span>
+        <div *dropdownMenu class="dropdown-menu" style="text-align: center;">
+          <div (click)="sort('new')" class="dropdown-item">New</div>
+          <div (click)="sort('old')" class="dropdown-item">Old</div>
+        </div>
+  </button>
+</div>
+<div (click)="goTo(item)" class="col-lg-3 col-md-4 col-sm-4 card-nyt" *ngFor="let item of news | SortPipe: orderBy:query" >
+    <article>
+      <div class="crop">
+          <img *ngIf="item.multimedia.length > 0" src="{{item.multimedia[item.multimedia.length -1].url}}" width="100%">
+          <img *ngIf="item.multimedia.length === 0" src="assets/nytlogo.jpeg" width="100%">
+      </div>
+      <h4 class="headline"> {{ item.title }} </h4>
+      <span class="author">{{ item.published_date | date }} by {{item.byline}}</span>
+    </article>
+    <!-- <img *ngIf="item.multimedia.length > 0" src="{{item.multimedia[item.multimedia.length -1].url}}" width="100%">
+    <img *ngIf="item.multimedia.length === 0" src="assets/nytlogo.jpeg" width="100%">
+    <h4> {{ item.title }} </h4>
+    <p> {{ item.abstract }} </p>
+    <span style="color: #999;font-size: 1rem;">{{ item.published_date | date }} by {{item.byline}}</span> -->
+  </div>
